@@ -1,0 +1,12 @@
+:root,
+::backdrop {
+	--sl-color-accent-low: var(--color-purple-900);
+	--sl-color-accent: var(--color-purple-300);
+	--sl-color-accent-high: var(--color-purple-150);
+}
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-accent-high: var(--color-purple-700);
+	--sl-color-accent: var(--color-purple-700);
+	--sl-color-accent-low: var(--color-purple-50);
+}

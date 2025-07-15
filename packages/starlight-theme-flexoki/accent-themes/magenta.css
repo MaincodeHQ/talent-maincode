@@ -1,0 +1,12 @@
+:root,
+::backdrop {
+	--sl-color-accent-low: var(--color-magenta-900);
+	--sl-color-accent: var(--color-magenta-300);
+	--sl-color-accent-high: var(--color-magenta-150);
+}
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-accent-high: var(--color-magenta-700);
+	--sl-color-accent: var(--color-magenta-700);
+	--sl-color-accent-low: var(--color-magenta-50);
+}

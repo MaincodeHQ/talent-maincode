@@ -1,0 +1,32 @@
+---
+import type { StarlightIcon } from '@astrojs/starlight/types';
+import { Icon } from '@astrojs/starlight/components';
+
+interface Props {
+	icon: StarlightIcon;
+	label: string;
+}
+
+const { icon, label } = Astro.props;
+---
+
+<p>
+	<Icon name={icon} size="1.5em" color="var(--sl-color-orange-high)" />
+	<span>{label}</span>
+</p>
+
+<style>
+	p {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		border-radius: 0.5rem;
+		padding: 0.75em 1em;
+		background-color: var(--sl-color-orange-low);
+		width: max-content;
+		max-width: 100%;
+		align-items: center;
+		gap: 0.75em;
+		font-size: var(--sl-text-body-sm);
+		line-height: var(--sl-line-height-headings);
+	}
+</style>

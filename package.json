@@ -1,0 +1,27 @@
+{
+  "name": "talent-maincode-monorepo",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Talent Maincode monorepo",
+  "author": "delucis",
+  "type": "module",
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "private": true,
+  "homepage": "https://github.com/MaincodeHQ/talent-maincode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaincodeHQ/talent-maincode.git"
+  },
+  "bugs": "https://github.com/MaincodeHQ/talent-maincode/issues",
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.1",
+    "@changesets/cli": "^2.28.1"
+  },
+  "scripts": {
+    "ci-version": "changeset version && pnpm install --no-frozen-lockfile",
+		"ci-publish": "changeset publish"
+  }
+}

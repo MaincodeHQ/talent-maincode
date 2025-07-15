@@ -1,0 +1,90 @@
+---
+title: Welcome to Maincode
+description: Discover our culture, values, team, and what makes us a great place to work.
+head:
+  - tag: title
+    content: Welcome to Maincode
+template: splash
+editUrl: false
+hero:
+  tagline: We're excited to share our story with you. Learn about our culture, values, and what makes Maincode special.
+  class: flex flex-col items-start text-left w-full max-w-6xl mx-auto py-8 md:py-12 lg:py-16 gap-8 md:gap-12
+  actions:
+    - text: Get started
+      link: /welcome/
+      icon: right-arrow
+      class: flex items-center justify-start
+      style:
+        marginBottom: 2rem
+    - text: Meet Our Team
+      link: /team/leadership/
+      icon: right-arrow
+      variant: minimal
+      class: flex items-center justify-start
+      style:
+        marginBottom: 4rem
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## What to Expect
+
+<CardGrid>
+
+  <LinkCard 
+    title="Required Reading" 
+    description="Essential articles about our company values, mission, and development practices that every team member should know."
+    href="/required/a-new-pathway"
+  />
+  
+  <LinkCard 
+    title="Optional Deep Dives" 
+    description="Explore our engineering culture, remote work philosophy, and innovation mindset through curated blog posts."
+    href="/blog/engineering-culture/"
+  />
+
+  <LinkCard 
+    title="Meet the Team" 
+    description="Get to know the people behind Maincode - our leadership, engineering team, and the culture champions who make our company special."
+    href="/team/leadership/"
+  />
+
+  <LinkCard 
+    title="Your Next Steps" 
+    description="Ready to move forward? Find out what comes next in your journey with Maincode."
+    href="/next-steps/"
+  />
+
+</CardGrid>
+
+{/* 
+## Why Maincode?
+
+<CardGrid>
+  
+  <LinkCard 
+    title="Innovation First" 
+    description="We're passionate about pushing boundaries and creating solutions that make a real difference in people's lives."
+    href="/blog/polymath-human-collider/"
+  />
+  
+  <LinkCard 
+    title="People-Centered Culture" 
+    description="Our success is built on trust, collaboration, and supporting each other's growth both professionally and personally."
+    href="/required/our-mission"
+  />
+
+  <LinkCard 
+    title="Remote-First Excellence" 
+    description="We've mastered the art of remote collaboration, giving you the flexibility to do your best work from anywhere."
+    href="/blog/remote-work-success/"
+  />
+
+  <LinkCard 
+    title="Continuous Learning" 
+    description="We invest in our team's growth with learning opportunities, mentorship, and the freedom to explore new technologies."
+    href="/required/development-practices/"
+  />
+
+</CardGrid>
+*/}

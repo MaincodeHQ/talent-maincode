@@ -1,0 +1,91 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+
+// Add a type assertion for Astro.locals
+type StarlightLocals = {
+  starlightRoute: {
+    dir: string;
+    pagination: {
+      prev?: { href: string; label: string };
+      next?: { href: string; label: string };
+    };
+  };
+  t: (key: string) => string;
+};
+
+const { dir, pagination } = (Astro.locals as StarlightLocals).starlightRoute;
+const { prev, next } = pagination;
+const isRtl = dir === 'rtl';
+
+if (!prev && !next) {
+	return;
+}
+---
+
+<div class="pagination-links" {dir}>
+	{
+		prev && (
+			<a href={prev.href} rel="prev" class="sl-flex">
+				<span class="eyebrow sl-flex">
+					<Icon name={isRtl ? 'right-arrow' : 'left-arrow'} size="1.5em" />
+					{(Astro.locals as StarlightLocals).t('page.previousLink')}
+				</span>
+				<span class="link-title">{prev.label}</span>
+			</a>
+		)
+	}
+	{
+		next && (
+			<a href={next.href} rel="next" class="sl-flex">
+				<span class="eyebrow sl-flex">
+					{(Astro.locals as StarlightLocals).t('page.nextLink')}
+					<Icon name={isRtl ? 'left-arrow' : 'right-arrow'} size="1.5em" />
+				</span>
+				<span class="link-title">{next.label}</span>
+			</a>
+		)
+	}
+</div>
+
+<style>
+	.pagination-links {
+		display: flex;
+		gap: 1rem;
+		border-top: 1px solid var(--sl-flexoki-shadow-shade);
+		padding-block: 2rem;
+	}
+
+	a {
+		flex-direction: column;
+		font-size: var(--sl-text-body-sm);
+		text-decoration: none;
+		color: var(--sl-color-gray-3);
+		width: 100%;
+		flex-grow: 1;
+
+		&[rel='next'] {
+			align-items: flex-end;
+		}
+
+		&:hover,
+		&:focus-visible {
+			color: var(--sl-color-text);
+			outline-offset: 0.375rem;
+		}
+	}
+	.eyebrow {
+		align-items: center;
+		gap: 0.1875rem;
+	}
+	svg {
+		margin-inline: -0.1875em 0;
+		[rel='next'] & {
+			margin-inline: 0 -0.1875em;
+		}
+	}
+	.link-title {
+		font-size: var(--sl-text-lg);
+		line-height: var(--sl-line-height-headings);
+		font-weight: 600;
+	}
+</style>
