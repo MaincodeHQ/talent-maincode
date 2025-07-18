@@ -1,4 +1,8 @@
-/* Berkeley Mono Brand Font */
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Berkeley Mono Brand Font - for code only */
 @font-face {
 	font-family: 'Berkeley Mono';
 	src: url('/BerkeleyMono-Regular.otf') format('opentype');
@@ -13,6 +17,13 @@
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
+}
+
+/* Font Variables */
+:root {
+	--font-headings: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-mono: 'Berkeley Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
 }
 
 :root,
@@ -565,9 +576,42 @@ h1#_top,
 	}
 }
 
+/* Override Starlight's default font to use Inter for body text */
+:root {
+	--__sl-font: var(--font-body);
+}
+
+/* Heading styles with Space Grotesk */
+.sl-markdown-content h1:not(:where(.not-content *)),
+.sl-markdown-content h2:not(:where(.not-content *)),
+.sl-markdown-content h3:not(:where(.not-content *)),
+.sl-markdown-content h4:not(:where(.not-content *)),
+.sl-markdown-content h5:not(:where(.not-content *)),
+.sl-markdown-content h6:not(:where(.not-content *)),
+.hero h1,
+.site-title,
+.header h1 {
+	font-family: var(--font-headings);
+	font-weight: 600;
+	letter-spacing: -0.025em;
+}
+
+/* Hero tagline uses Inter for better readability */
+.hero .tagline {
+	font-family: var(--font-body);
+	font-weight: 400;
+	letter-spacing: -0.01em;
+}
+
+/* Special styling for main title */
+.sl-markdown-content h1:not(:where(.not-content *)) {
+	font-weight: 700;
+	letter-spacing: -0.03em;
+}
+
 /* Badges */
 .sl-badge:is(.sl-badge) {
-	font-family: var(--__sl-font);
+	font-family: var(--font-body);
 	font-weight: 500;
 	line-height: 1;
 
@@ -721,30 +765,13 @@ footer {
 	--maincode-terminal-green: #00ff41;
 }
 
-/* Berkeley Mono Brand Font Usage - Strategic Application */
-/* Site title and main navigation branding */
-.site-title,
-.header h1,
-.navbar-brand {
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-	font-weight: 700;
-	letter-spacing: -0.02em;
-}
-
-/* Navigation section labels for branded hierarchy */
+/* Navigation styling with Inter */
 .sidebar-content .group-label {
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-	font-weight: 400;
+	font-family: var(--font-body);
+	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	font-size: 0.75rem;
-}
-
-/* Key page titles for brand consistency */
-.sl-markdown-content h1:not(:where(.not-content *)) {
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-	font-weight: 700;
-	letter-spacing: -0.02em;
 }
 
 /* Enhanced typography with subtle engineering touches */
@@ -767,7 +794,7 @@ footer {
 	color: var(--color-base-100);
 	padding: 0.125rem 0.375rem;
 	border-radius: 4px;
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+	font-family: var(--font-mono);
 	font-size: 0.875em;
 	border: 1px solid var(--color-base-800);
 }
@@ -800,9 +827,9 @@ footer {
     display: flex;
     align-items: center;
     gap: .75rem;
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
+    font-family: var(--font-headings);
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 
 /* Dark mode - logo should be white */
@@ -856,13 +883,11 @@ footer {
 	background: linear-gradient(90deg, var(--color-base-50), transparent);
 }
 
-/* Technical badges with Berkeley Mono branding */
-.sl-badge:is(.sl-badge) {
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	font-size: 0.75rem;
-	font-weight: 400;
+/* Code-related elements keep Berkeley Mono */
+.sl-markdown-content code:not(:where(.not-content *)),
+.sl-markdown-content pre:not(:where(.not-content *)),
+.sl-markdown-content kbd:not(:where(.not-content *)) {
+	font-family: var(--font-mono);
 }
 
 /* Terminal-style command blocks */
@@ -871,7 +896,7 @@ footer {
 	border: 1px solid var(--color-base-700);
 	border-radius: 8px;
 	padding: 1rem;
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+	font-family: var(--font-mono);
 	color: var(--maincode-terminal-green);
 	position: relative;
 }
@@ -893,8 +918,9 @@ footer {
 	color: var(--color-base-100);
 	border: 1px solid var(--color-base-700);
 	padding: 0.75rem;
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+	font-family: var(--font-body);
 	font-size: 0.875em;
+	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 }
@@ -928,37 +954,37 @@ footer {
 	border-left: 4px solid var(--color-base-600);
 }
 
-/* Branded call-to-action buttons */
+/* Call-to-action buttons with Inter */
 .sl-markdown-content .cta-button {
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-	font-weight: 400;
+	font-family: var(--font-body);
+	font-weight: 500;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
 	font-size: 0.875rem;
 }
 
-/* Footer branding elements */
+/* Footer elements with Inter */
 footer .meta {
-	font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
+	font-family: var(--font-body);
 	font-size: 0.75rem;
 	letter-spacing: 0.05em;
 }
 
-/* Navigation brand styling */
+/* Navigation brand styling - now uses Space Grotesk */
 .navbar-brand {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
+    font-family: var(--font-headings);
     font-weight: 700;
     letter-spacing: -0.02em;
 }
 
-/* Home page Berkeley Mono styling */
+/* Home page title styling with Space Grotesk */
 .hero h1 {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-    font-weight: 700;  /* Changed from 300 to 700 for bold */
-    letter-spacing: -0.02em;
+    font-family: var(--font-headings);
+    font-weight: 700;
+    letter-spacing: -0.03em;
     margin-top: 3rem;
     white-space: nowrap;
     overflow-wrap: normal;
@@ -986,16 +1012,16 @@ footer .meta {
 
 /* Target splash template pages specifically (home page uses splash template) */
 [data-template="splash"] .sl-markdown-content h2:not(:where(.not-content *)) {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace !important;
-    font-weight: 300   !important;
-    letter-spacing: -0.02em !important;
+    font-family: var(--font-headings) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.025em !important;
 }
 
 /* Additional targeting by content - fallback approach */
 .sl-markdown-content h2:not(:where(.not-content *)):is([id*="what-to-expect"], [id*="why-maincode"]) {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace !important;
-    font-weight: 300 !important;
-    letter-spacing: -0.02em !important;
+    font-family: var(--font-headings) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.025em !important;
 }
 
 /* Button styling - slightly rounded but more square */
@@ -1054,42 +1080,41 @@ footer .meta {
     }
 }
 
-/* Berkeley Mono for closing italic text */
+/* Inter for closing italic text */
 .sl-markdown-content p:last-child em,
 .sl-markdown-content p:last-of-type em {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-    font-weight: 300;
+    font-family: var(--font-body);
+    font-weight: 400;
     letter-spacing: -0.01em;
-    font-style: normal;
-	font-size: 0.5em;
+    font-style: italic;
+	font-size: 0.9em;
 }
 
 /* Alternative more specific targeting */
 .sl-markdown-content p em:only-child {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace;
-    font-weight: 300;
-    letter-spacing: -0.05em;
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: -0.02em;
 	font-size: 0.95em;
-
-    font-style: normal;
+    font-style: italic;
 }
 
-/* Hero title Berkeley Mono Bold styling */
+/* Hero title Space Grotesk styling */
 .site-title,
 .content-panel h1,
 [data-template="splash"] .hero h1,
 [data-template="splash"] .content-panel h1#_top {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace !important;
-    font-weight: 700 !important;  /* Bold weight */
-    letter-spacing: -0.02em;
+    font-family: var(--font-headings) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.03em;
 }
 
-/* Article h2 Berkeley Mono styling */
+/* Article h2 Space Grotesk styling */
 .content-panel h2:not(:where(.not-content *)),
 .sl-markdown-content h2:not(:where(.not-content *)) {
-    font-family: 'Berkeley Mono', 'SF Mono', 'Monaco', monospace !important;
-    font-weight: 400 !important;  /* Regular weight */
-    letter-spacing: -0.02em;
+    font-family: var(--font-headings) !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.025em;
 	font-size: 1.5rem;
 }
 
