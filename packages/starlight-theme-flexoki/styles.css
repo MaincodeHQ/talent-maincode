@@ -832,19 +832,26 @@ footer {
     letter-spacing: -0.03em;
 }
 
-/* Dark mode - logo should be white */
-[data-theme='dark'] .site-title svg path {
-    fill: var(--color-base-200);
+/* Logo image styling */
+.site-title img {
+    height: 1.2rem;
+    width: auto;
+    transition: transform 0.2s ease;
 }
 
-/* Light mode - logo should be dark */
-[data-theme='light'] .site-title svg path {
-    fill: var(--color-base-900);
+/* Dark mode - use warm white logo */
+[data-theme='dark'] .site-title img {
+    content: url('/warmwhite-mc-logo.png');
+}
+
+/* Light mode - use warm dark logo */
+[data-theme='light'] .site-title img {
+    content: url('/warmdark_mc_logo.png');
 }
 
 /* Hover effects for the logo */
-.site-title:hover svg {
-    transform: scale(1.05);
+.site-title:hover img {
+    /* Removed scale transform */
 }
 
 /* Header logo container */
@@ -856,6 +863,28 @@ footer {
 
 .header .site-title:hover {
     color: var(--sl-color-text-accent);
+}
+
+/* Hero logo styling */
+.hero-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-logo img {
+    height: 3rem;
+    width: auto;
+    max-width: 300px;
+}
+
+/* Dark mode - use warm white logo */
+[data-theme='dark'] .hero-logo img {
+    content: url('/warmwhite-mc-logo.png');
+}
+
+/* Light mode - use warm dark logo */
+[data-theme='light'] .hero-logo img {
+    content: url('/warmdark_mc_logo.png');
 }
 
 /* Enhanced blockquotes with minimal engineering aesthetic */

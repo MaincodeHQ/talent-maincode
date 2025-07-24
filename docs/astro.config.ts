@@ -19,10 +19,13 @@ export default defineConfig({
 		starlight({
 			title: 'Maincode',
 			description: 'Your journey with Maincode starts here - learn about our company, culture, and what makes us special',
+			logo: {
+				src: './public/warmdark_mc_logo.png',
+				replacesTitle: true,
+			},
 			social: {
 				github: 'https://github.com/MaincodeHQ',
-				linkedin: 'https://linkedin.com/company/maincode',
-				twitter: 'https://twitter.com/maincode',
+				linkedin: 'https://www.linkedin.com/company/maincodehq/',
 			},
 			editLink: {
 				baseUrl: 'https://github.com/maincode-org/candidate-experience/edit/main/docs/',
